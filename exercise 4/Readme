@@ -1,0 +1,5 @@
+In this exercise, I have created the sequence diagram with draw.io (app.diagrams.net). According to my thinking, I had three objects: Welcome, JIRA and JIRA server. I take request from the marketer in welcome software and send a API request to JIRA and JIRA server will give me the response. 
+
+I checked the conditions, if all of them are okay then JIRA board will create the card and give me the issue id as response. 
+
+With this issue id, whenever any change comes to welcome, I will create another request to store the change in the Jira server.
