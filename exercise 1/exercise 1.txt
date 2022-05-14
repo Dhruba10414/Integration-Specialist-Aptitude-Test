@@ -1,0 +1,33 @@
+## Requirement 1:
+	1. Hit GET /v3/upload-url to get s3 presigned upload url, from the response {key} will needed further.
+	2. Hit Post /v3/assests with payload {key, title}, from the response {id} will needed further as asset_id.
+	3. The asset should also attached to a task for getting custom-fields, labels and add a comment.
+	   there is a endpoint /tasks/{id}/assets where id is the task_id but can't figure out to create a new task api.
+	   May be it can be assumed to already have a task_id.
+	4. Hit the legApprove api endpoint with {key} to send the asset for validation
+
+## Requirement 2
+	Hit GET /tasks/{id} with the task id and from the response[labels][1][values], labels can be pushed to legApprove
+
+## Requirement 3
+	Hit GET /tasks/{id}/custom-fields and extract custom fields from response[values] ==> list and push back in legApprove
+
+## Requirement 4
+	Can't figure out how to update External Work Information
+	May be adding a sub_step for a task make the solution but again i did not figure out an api to create sub_step of a task
+
+## Requirement 5
+	Didn't find any due_date data on any api endpoint of Welcome. So may be this is not supported.
+
+## Requirement 6
+	Hit POST /tasks/{task_id}/assets/{asset_id}/comments with task_id=id, asset_id=asset_id with payload {value: comment, attachmets: NULL} to notify asset is being reviewed.
+
+## Requirement 7
+	Hit POST /tasks/{task_id}/assets/{asset_id}/drafts with payload {key: key from uploader from step 1, title}
+
+## Requirement 8
+	Can't figure out any appropiate api endpoint.
+
+
+I was confused with tasks and library part, both are pretty smilar, may be there are some better ways.
+
